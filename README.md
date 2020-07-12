@@ -39,11 +39,11 @@ mysql_source:
   select_android_user: "select * from coa_user  where is_android = false limit 3"
 
 ```
-For queries delimitation, only use `"`, not `````,  since it can be use in the SQL query.
+For queries delimitation, only use `"`, not `` ` ``,  since it can be use in the SQL query.
 Finally, use those queries in your markdown file :
 
-+`query` : the name of the query used as it is in the Pico's conf file.
-+`row` : the markdown you want to insert in your file for each row of the query result. Use `{` and `}` to put your query column name.
++ `query` : the name of the query used as it is in the Pico's conf file.
++ `row` : the markdown you want to insert in your file for each row of the query result. Use `{` and `}` to put your query column name.
 
 For a list: 
 
