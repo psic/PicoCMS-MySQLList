@@ -22,7 +22,7 @@ class MySQLListPlugin extends AbstractPicoPlugin
 	 */
 	public function onConfigLoaded(array &$config)
 	{
-	$this->config = include('config.php'); 
+	$this->config = include('MySQLConfig.php'); 
 	if (isset($config['mysql_source']))
         {
             $db_conf = $config['mysql_source'];

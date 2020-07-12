@@ -11,24 +11,46 @@ It will be completed with a MySQLGraph plugin and a GETFromAPI plugin.
 
 # Install
 
-Copy the `MySQLListPlugin.php` into the `plugins` folder.
+Copy the `MySQLListPlugin.php` and the `MySQLConfig.php` files into the `plugins` folder.
+
+# Config
+
+First, config your database access in the `MySQLConfig.php` :
+
+```
+return array(
+    'db1'=>array ( // database settings name for the plugin 
+        'host' => 'localhost', //database host
+        'username' => 'admin', //database username
+        'password' => 'passwd1', //database password
+        'db_name' => 'db1_name') //database name
+);
 
 
-# Example
-
-The config :
+```
+You can add several database in this file.
+Then, you should write queries, and give them names in the Pico's config :
 
 ```
 mysql_source:
  db1:                             # First database config name
-  db_name: first_db                 # database name
-  db_user: admin                    # database user
-  db_pwd: myComplexPwd              # database password
-  db_host: localhost                # database host
-```
-
-Your markdown file : 
+  #query_name: "SQL Query, SELECT only"
+  select_users: "select * from coa_user limit 2"
+  select_android_user: "select * from coa_user  where is_android = false limit 3"
 
 ```
-[db_source query="select id, email from user" db="db1" row=" + {id} *email* : {email}" ]
+Finally, use those queries in your markdown file for a list: 
+
 ```
+[db_source query="select_users" row=" + {id} *email* : {email}" ]
+```
+
+or a table: 
+
+```
+| id | email |
+|----|:------|
+[db_source query="select_users" row=" | {id} | {email} |" ]
+```
+
+
