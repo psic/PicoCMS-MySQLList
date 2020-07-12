@@ -35,8 +35,8 @@ Then, you should write queries, and give them names in the Pico's config :
 mysql_source:
  db1:                             # First database config name
   #query_name: "SQL Query, SELECT only"
-  select_users: "select * from coa_user limit 2"
-  select_android_user: "select * from coa_user  where is_android = false limit 3"
+  select_users: "select * from user limit 2"
+  select_android_user: "select * from user  where is_android = false limit 3"
 
 ```
 For queries delimitation, only use `"`, not `` ` ``,  since it can be use in the SQL query.
