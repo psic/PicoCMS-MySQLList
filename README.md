@@ -29,6 +29,7 @@ return array(
 
 ```
 You can add several database in this file. If you also use [the MySQLGraph plugin](https://github.com/psic/PicoCMS-MySQLGraph), you can share the conf file : put MySQLListPlugin.php, MySQLGraphPlugin.php and a MySQLConfig.php files in the root plugin folder.
+
 Then, you should write queries, and give them names in the Pico's config :
 
 ```
