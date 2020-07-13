@@ -5,7 +5,7 @@
  *
  * */
 return array(
-    'MyFirstDB'=>array ( 
+    'db1'=>array ( 
 	'host' => 'localhost',
 	'username' => 'admin',
 	'password' => 'passwd1',
