@@ -73,10 +73,16 @@ class MySQLListPlugin extends AbstractPicoPlugin
 			if($found == 1)
 				$db_name_string = $db_name;
 		    }
-
-                    $result = $this->makeQuery($db_name_string,$query_string,$row[1]);
-                    // Replace embeding code with the shortcode in the content
-                    $content = preg_replace('#\[db_source *.*?\]#s', $result, $content, 1);
+			if(strtoupper(substr(trim($query_string),0,6) ) != 'SELECT')
+			{
+			    $content = preg_replace('#\[db_source *.*?\]#s', '*MySQLList ERROR*', $content, 1);
+			}
+			else
+			{
+			    $result = $this->makeQuery($db_name_string,$query_string,$row[1]);
+			    // Replace embeding code with the shortcode in the content
+			    $content = preg_replace('#\[db_source *.*?\]#s', $result, $content, 1);
+			}
                 }
                 else
                     $content = preg_replace('#\[db_source *.*?\]#s', '*MySQLList ERROR*', $content, 1);
